@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Client</div>
+    <button onclick="getUser()">Get user</button>
+    <button onclick="testFunction()">Test</button>
+
+    <script>
+        async function getMsg() {
+            const result = await fetch('http://localhost:3000/')
+            const msg = await result.text();
+
+            console.log(msg);
+        }
+
+        getMsg();
+
+        async function getUser() {
+            const result = await fetch('http://localhost:3000/user/1');
+            const msg = await result.json();
+
+            console.log(msg);
+        }
+
+        async function testFunction() {
+            const result = await fetch('http://localhost:3000/resursa?pagina=1&limita=10');
+            const msg = await result.text();
+
+            console.log(msg);
+        }
+    </script>
+</body>
+</html>
